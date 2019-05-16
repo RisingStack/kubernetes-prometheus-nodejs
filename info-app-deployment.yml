@@ -1,0 +1,35 @@
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: info
+  name: info-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: info
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: info
+        tier: app
+    spec:
+      containers:
+      - image: eu.gcr.io/training-193616/kristof-ms-info:v1
+        imagePullPolicy: IfNotPresent
+        name: info
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "10m"
+          limits:
+            memory: "128Mi"
+            cpu: "15m"
+        ports:
+        - containerPort: 1338
+          protocol: TCP
+    

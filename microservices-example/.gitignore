@@ -1,0 +1,6 @@
+api-gateway/node_modules
+info/node_modules
+users/node_modules
+api-gateway/package-lock.json
+info/package-lock.json
+users/package-lock.json
